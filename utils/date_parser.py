@@ -12,5 +12,4 @@ class DateParser:
             return[day_of_week,hour]
         except ValueError:
             raise ValueError("Invalid date and time format. Expected: yyyy-mm-dd-hh:mm")
-    
-
+        
