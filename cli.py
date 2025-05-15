@@ -22,16 +22,16 @@ def parse_arguments():
     return parser.parse_args()
 
 def set_rules():
-    restriction_morning = (time(7, 0), time(9, 30))
-    restriction_noon = (time(16, 0), time(19, 30))
+    restrictions_morning = (time(7, 0), time(9, 30))
+    restrictions_noon = (time(16, 0), time(19, 30))
 
     regulations=PicoPlacaRegulations()
 
-    regulations.addRule(PicoPlacaRule('Monday', [1, 2], [restriction_morning, restriction_noon]))
-    regulations.addRule(PicoPlacaRule('Tuesday', [3, 4], [restriction_morning, restriction_noon]))
-    regulations.addRule(PicoPlacaRule('Wednesday', [5, 6], [restriction_morning, restriction_noon]))
-    regulations.addRule(PicoPlacaRule('Thursday', [7, 8], [restriction_morning, restriction_noon]))
-    regulations.addRule(PicoPlacaRule('Friday', [9, 0], [restriction_morning, restriction_noon]))
+    regulations.addRule(PicoPlacaRule('Monday', [1, 2], [restrictions_morning, restrictions_noon]))
+    regulations.addRule(PicoPlacaRule('Tuesday', [3, 4], [restrictions_morning, restrictions_noon]))
+    regulations.addRule(PicoPlacaRule('Wednesday', [5, 6], [restrictions_morning, restrictions_noon]))
+    regulations.addRule(PicoPlacaRule('Thursday', [7, 8], [restrictions_morning, restrictions_noon]))
+    regulations.addRule(PicoPlacaRule('Friday', [9, 0], [restrictions_morning, restrictions_noon]))
     
 
     return regulations
@@ -43,6 +43,7 @@ def main():
     week_regulations=set_rules()
     pico_placa_predictor = PicoPlacaPredictor(week_regulations)
     is_restricted,reason=pico_placa_predictor.validation(args.plate,args.datehour)
+    
     print("\n========== PICO Y PLACA CHECK RESULT ==========\n")
     print(f"License Plate: {args.plate}")
     print(f"Date & Time : {args.datehour}\n")
