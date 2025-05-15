@@ -10,7 +10,6 @@ class PicoPlacaRegulations:
     
     def checkRestrictions(self, last_digit_plate, day_time):
         day_name, time_input = day_time
-        print(last_digit_plate,day_name, time_input)
         rule = next((r for r in self.rules if r.weekday==day_name), None)
         if rule:
             return rule.verify_pico_placa(last_digit_plate, day_name,time_input)

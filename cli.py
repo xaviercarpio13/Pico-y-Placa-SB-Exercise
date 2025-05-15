@@ -42,9 +42,19 @@ def main():
     
     week_regulations=set_rules()
     pico_placa_predictor = PicoPlacaPredictor(week_regulations)
-    pico_placa_predictor.validation(args.plate,args.datehour)
+    is_restricted,reason=pico_placa_predictor.validation(args.plate,args.datehour)
+    print("\n========== PICO Y PLACA CHECK RESULT ==========\n")
+    print(f"License Plate: {args.plate}")
+    print(f"Date & Time : {args.datehour}\n")
 
+    if is_restricted:
+        print("STATUS:       VEHICLE IS RESTRICTED")
+        print("RESTRICTED HOURS: 7:00 - 9:30 | 16:00 - 19:30")
+    else:
+        print("STATUS      : VEHICLE IS NOT RESTRICTED")
 
+    print(f"REASON      : {reason}")
+    print("\n===============================================\n")
 
 if __name__=="__main__":
     main()
