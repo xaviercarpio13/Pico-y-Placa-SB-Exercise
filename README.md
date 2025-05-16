@@ -31,8 +31,7 @@ The current implementation follows these restriction rules:
 Clone the repository to your local machine:
 
 ```bash
-git clone https://github.com/your-username/PicoPlaca.git
-cd PicoPlaca
+git clone https://github.com/your-username/PicoPlaca.git](https://github.com/xaviercarpio13/Pico-y-Placa-SB-Exercise.git
 ```
 
 ## Run Program
@@ -97,6 +96,7 @@ These tests help to cover:
 ## Author
 
 **Copyright (c) 2025 Xavier Andres Carpio Layedra**
+All rights reserved. 
 
 
 
